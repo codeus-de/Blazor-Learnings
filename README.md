@@ -15,3 +15,15 @@ Not specific to blazor: If the project contains additional files (e.g. a .xml co
         <DestinationRelativePath>ConfigFiles/%(Filename)%(Extension)</DestinationRelativePath>
       </DotNetPublishFiles>
     </ItemGroup>
+    
+### Publish profiles are MSBuild files
+Not specific to blazor: To copy custom files into the publish directory depending on the publish profile, one can include statements like this into the .pubxml file as well:
+
+    <ItemGroup>
+      <_CustomFiles Include="$(MSBuildProjectDirectory)/MyConfig.Development.xml" />
+      <DotNetPublishFiles Include="@(_CustomFiles)">
+        <DestinationRelativePath>App_Start/MyConfig.xml</DestinationRelativePath>
+      </DotNetPublishFiles>
+    </ItemGroup>
+
+That way one could create a seperate .pubxml file for each deployment destination and let each one inlude a different configuration.
