@@ -7,7 +7,7 @@ URLs on pages need to be rooted (e.g. @page "/home"). When navigating using the 
 
 ## Deployment
 ### Copy additional files
-If the project contains additional files (e.g. a .xml configuration file) one can simply add a new <ItemGroup> section to the project file. One example that copies the single file MyConfig.xml to a sub folder ConfigFiles:
+Not specific to blazor: If the project contains additional files (e.g. a .xml configuration file) one can simply add a new <ItemGroup> section to the project file. One example that copies the single file MyConfig.xml to a sub folder ConfigFiles:
   
     <ItemGroup>
       <_CustomFiles Include="$(MSBuildProjectDirectory)/MyConfig.xml" />
